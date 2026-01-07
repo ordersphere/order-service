@@ -1,8 +1,8 @@
-package com.thetrickuser.ordersphere.controller;
+package com.ordersphere.controller;
 
-import com.thetrickuser.ordersphere.domain.OrderRequestDTO;
-import com.thetrickuser.ordersphere.domain.OrderResponseDTO;
-import com.thetrickuser.ordersphere.service.OrderService;
+import com.ordersphere.domain.OrderRequestDTO;
+import com.ordersphere.domain.OrderResponseDTO;
+import com.ordersphere.service.OrderService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

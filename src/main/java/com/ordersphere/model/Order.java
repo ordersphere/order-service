@@ -1,6 +1,6 @@
-package com.thetrickuser.ordersphere.model;
+package com.ordersphere.model;
 
-import com.thetrickuser.ordersphere.domain.OrderStatus;
+import com.ordersphere.domain.OrderStatus;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;

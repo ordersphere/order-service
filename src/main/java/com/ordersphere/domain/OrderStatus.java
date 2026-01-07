@@ -1,4 +1,4 @@
-package com.thetrickuser.ordersphere.domain;
+package com.ordersphere.domain;
 
 public enum OrderStatus {
     CREATED,

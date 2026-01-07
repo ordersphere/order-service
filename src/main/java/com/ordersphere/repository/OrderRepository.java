@@ -1,6 +1,6 @@
-package com.thetrickuser.ordersphere.repository;
+package com.ordersphere.repository;
 
-import com.thetrickuser.ordersphere.model.Order;
+import com.ordersphere.model.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

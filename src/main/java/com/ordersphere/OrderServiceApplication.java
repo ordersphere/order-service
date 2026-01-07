@@ -1,4 +1,4 @@
-package com.thetrickuser.ordersphere;
+package com.ordersphere;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

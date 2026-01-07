@@ -1,11 +1,11 @@
-package com.thetrickuser.ordersphere.service.impl;
+package com.ordersphere.service.impl;
 
-import com.thetrickuser.ordersphere.domain.OrderRequestDTO;
-import com.thetrickuser.ordersphere.domain.OrderResponseDTO;
-import com.thetrickuser.ordersphere.model.Order;
-import com.thetrickuser.ordersphere.repository.OrderRepository;
-import com.thetrickuser.ordersphere.service.OrderService;
-import com.thetrickuser.ordersphere.util.OrderMapper;
+import com.ordersphere.domain.OrderRequestDTO;
+import com.ordersphere.domain.OrderResponseDTO;
+import com.ordersphere.model.Order;
+import com.ordersphere.repository.OrderRepository;
+import com.ordersphere.service.OrderService;
+import com.ordersphere.util.OrderMapper;
 import org.springframework.stereotype.Service;
 
 @Service

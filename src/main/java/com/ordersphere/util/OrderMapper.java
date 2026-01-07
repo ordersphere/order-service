@@ -1,9 +1,9 @@
-package com.thetrickuser.ordersphere.util;
+package com.ordersphere.util;
 
-import com.thetrickuser.ordersphere.domain.OrderRequestDTO;
-import com.thetrickuser.ordersphere.domain.OrderResponseDTO;
-import com.thetrickuser.ordersphere.domain.OrderStatus;
-import com.thetrickuser.ordersphere.model.Order;
+import com.ordersphere.domain.OrderRequestDTO;
+import com.ordersphere.domain.OrderResponseDTO;
+import com.ordersphere.domain.OrderStatus;
+import com.ordersphere.model.Order;
 
 public class OrderMapper {
 

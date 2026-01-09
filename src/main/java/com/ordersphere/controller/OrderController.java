@@ -4,10 +4,7 @@ import com.ordersphere.domain.OrderRequestDTO;
 import com.ordersphere.domain.OrderResponseDTO;
 import com.ordersphere.service.OrderService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/orders")
@@ -23,5 +20,11 @@ public class OrderController {
     public ResponseEntity<OrderResponseDTO> createOrder(@RequestBody OrderRequestDTO request) {
         OrderResponseDTO response = orderService.createOrder(request);
         return ResponseEntity.status(201).body(response);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<OrderResponseDTO> getOrder(@PathVariable Long id) {
+        OrderResponseDTO order = orderService.getOrder(id);
+        return ResponseEntity.ok(order);
     }
 }

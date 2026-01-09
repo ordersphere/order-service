@@ -10,6 +10,5 @@ public interface OrderService {
     OrderResponseDTO createOrder(OrderRequestDTO request);
     OrderResponseDTO cancelOrder(OrderRequestDTO request);
     OrderResponseDTO getOrder(long orderId);
-    List<OrderResponseDTO> getAllOrders(long customerId);
 
 }

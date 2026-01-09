@@ -39,9 +39,4 @@ public class OrderServiceImpl implements OrderService {
                 .map(OrderMapper::toOrderResponse)
                 .orElseThrow(OrderNotFoundException::new);
     }
-
-    @Override
-    public List<OrderResponseDTO> getAllOrders(long customerId) {
-        return List.of();
-    }
 }

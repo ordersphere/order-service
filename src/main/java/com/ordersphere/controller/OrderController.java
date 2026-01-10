@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+
 @RestController
 @RequestMapping
 public class OrderController {
@@ -24,7 +26,7 @@ public class OrderController {
     @PostMapping("/orders")
     public ResponseEntity<OrderResponseDTO> createOrder(@RequestBody OrderRequestDTO request) {
         OrderResponseDTO response = orderService.createOrder(request);
-        return ResponseEntity.status(201).body(response);
+        return ResponseEntity.created(URI.create("/orders/" + response.orderId())).body(response);
     }
 
     @GetMapping("/orders/{orderId}")
@@ -39,7 +41,13 @@ public class OrderController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size
     ) {
-        Page<OrderSummaryDTO> order = orderQueryService.getOrdersForCustomer(customerId, page, size);
-        return ResponseEntity.ok(order);
+        Page<OrderSummaryDTO> orders = orderQueryService.getOrdersForCustomer(customerId, page, size);
+        return ResponseEntity.ok(orders);
+    }
+
+    @PutMapping("/orders/{orderId}/cancel")
+    public ResponseEntity<OrderResponseDTO> cancelOrder(@PathVariable Long orderId) {
+        OrderResponseDTO response = orderService.cancelOrder(orderId);
+        return ResponseEntity.ok(response);
     }
 }

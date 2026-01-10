@@ -2,6 +2,7 @@ package com.ordersphere.service.impl;
 
 import com.ordersphere.domain.OrderRequestDTO;
 import com.ordersphere.domain.OrderResponseDTO;
+import com.ordersphere.domain.OrderStatus;
 import com.ordersphere.exception.OrderNotFoundException;
 import com.ordersphere.model.Order;
 import com.ordersphere.repository.OrderRepository;
@@ -29,14 +30,24 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public OrderResponseDTO cancelOrder(OrderRequestDTO request) {
-        return null;
+    public OrderResponseDTO cancelOrder(Long orderId) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new OrderNotFoundException(orderId));
+
+        if (order.getStatus() == OrderStatus.CANCELLED) {
+            return OrderMapper.toOrderResponse(order);
+        }
+
+        order.setStatus(OrderStatus.CANCELLED);
+        Order saved = orderRepository.save(order);
+
+        return OrderMapper.toOrderResponse(saved);
     }
 
     @Override
     public OrderResponseDTO getOrder(long orderId) {
         return orderRepository.findById(orderId)
                 .map(OrderMapper::toOrderResponse)
-                .orElseThrow(OrderNotFoundException::new);
+                .orElseThrow(() -> new OrderNotFoundException(orderId));
     }
 }
